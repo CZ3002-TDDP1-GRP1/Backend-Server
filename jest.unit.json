@@ -1,0 +1,10 @@
+{
+    "preset":"ts-jest",
+    "coverageDirectory":"./coverage",
+    "coverageReporters": ["json", "html"],
+    "testMatch":[
+        "**/?(*.)+(test).ts"
+    ],
+    "resetMocks":true,
+    "clearMocks":true
+}

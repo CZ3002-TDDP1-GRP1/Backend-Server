@@ -10,8 +10,14 @@ const forecastRouter_1 = __importDefault(require("./routes/forecastRouter"));
 const fitnessPlanRouter_1 = __importDefault(require("./routes/fitnessPlanRouter"));
 const exerciseRouter_1 = __importDefault(require("./routes/exerciseRouter"));
 const path_1 = __importDefault(require("path"));
+const cors_1 = __importDefault(require("cors"));
+const allowedOrigins = ['http://localhost:*'];
+const options = {
+    origin: allowedOrigins
+};
 const app = express_1.default();
 exports.default = app;
+app.use(cors_1.default(options));
 app.use(express_1.default.json());
 app.set('views', path_1.default.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

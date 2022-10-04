@@ -6,8 +6,14 @@ import ExerciseRouter from './routes/exerciseRouter';
 import path from 'path';
 import cors from 'cors';
 
+const allowedOrigins=['http://localhost:*'];
+
+const options: cors.CorsOptions = {
+    origin: allowedOrigins
+  };
+
 const app = express();
-app.use(cors);
+app.use(cors(options));
 app.use(express.json());
 
 app.set('views', path.join(__dirname, 'views'));

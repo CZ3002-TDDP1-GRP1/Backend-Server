@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
 const exerciseRepo_1 = __importDefault(require("../repo/exerciseRepo"));
 const GetAllExercises = () => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("GetAllExercises Called");
     try {
         const exercises = yield exerciseRepo_1.default.GetAllExercises();
         return exercises;

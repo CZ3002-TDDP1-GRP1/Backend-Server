@@ -1,6 +1,7 @@
 import ExerciseRepo from "../repo/exerciseRepo";
 
 const GetAllExercises = async()=>{
+    console.log("GetAllExercises Called");
     try{
         const exercises = await ExerciseRepo.GetAllExercises();
         return exercises;

@@ -3,7 +3,8 @@ import AuthService from '../service/authService';
 
 const Register = async (req: Request, res: Response) => {
   const { email, name, password } = req.body;
-
+  console.log(req.body);
+  console.log("Register is being called from backend server ...");
   const emailRegex = "[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+";
   if (!email.match(emailRegex)) {
     console.error(`AuthController: Login: Invalid email string: ${email}`)
@@ -18,17 +19,18 @@ const Register = async (req: Request, res: Response) => {
     return res.status(500).json({ message: 'Password should be within length of 6 - 50.' });
   }
 
-  try {
+  try{
     const tokens = await AuthService.Register(email, name, password);
     res.json(tokens);
   } catch (err) {
+    console.log("Error occurred while trying to register");
     res.status(500).json({ message: err.message });
   }
 };
 
 const Login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
-
+  console.log(req.body);
   const emailRegex = "[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+";
   if (!email.match(emailRegex)) {
     console.error(`AuthController: Login: Invalid email string: ${email}`)

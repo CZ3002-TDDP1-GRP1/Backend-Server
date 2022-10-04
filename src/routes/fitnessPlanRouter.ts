@@ -4,10 +4,10 @@ import FitnessPlanController from '../controller/fitnessPlanController';
 
 const router = Express.Router();
 
-router.get('/',VerifyJWTToken, FitnessPlanController.GetFitnessPlans);
-router.get('/:date', VerifyJWTToken, FitnessPlanController.GetDateFitnessPlanForUser);
-router.post('/:date/activity',VerifyJWTToken, FitnessPlanController.AddActivityToFitnessPlan);
-router.delete('/:date/activity',VerifyJWTToken, FitnessPlanController.DeleteActivityFromFitnessPlan);
-router.patch('/:date/activity',VerifyJWTToken, FitnessPlanController.EditActivityFromFitnessPlan);
+router.get('/', FitnessPlanController.GetFitnessPlans);
+router.get('/:date', FitnessPlanController.GetDateFitnessPlanForUser);
+router.post('/:date&:user/activity', FitnessPlanController.AddActivityToFitnessPlan);
+router.delete('/:date&:user/activity', FitnessPlanController.DeleteActivityFromFitnessPlan);
+router.patch('/:date&:user/activity', FitnessPlanController.EditActivityFromFitnessPlan);
 
 export { router as default };

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import FitnessPlanService from "../service/fitnessPlanService";
+import mongoose from 'mongoose';
 
 const GetFitnessPlans = async (req: Request, res: Response) => {
     const userID = req.params.user;
@@ -38,13 +39,14 @@ const GetDateFitnessPlanForUser = async (req: Request, res: Response) => {
 }
 
 const AddActivityToFitnessPlan = async (req: Request, res: Response) => {
-    const userID = req.params.user;
+    const userID = (req.params.user);
     if (!userID) {
         return res.status(401).json({ message: 'User not found' })
     }
 
     const { exerciseID, quantity, sets } = req.body;
     const { date } = req.params;
+    console.log(date,quantity,sets);
 
     const dateRegex = /^(19|20)\d\d([-])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])$/;
     if (!date.match(dateRegex)) {

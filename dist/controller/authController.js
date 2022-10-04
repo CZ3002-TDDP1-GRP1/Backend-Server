@@ -16,6 +16,8 @@ exports.default = void 0;
 const authService_1 = __importDefault(require("../service/authService"));
 const Register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, name, password } = req.body;
+    console.log(req.body);
+    console.log("Register is being called from backend server ...");
     const emailRegex = "[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+";
     if (!email.match(emailRegex)) {
         console.error(`AuthController: Login: Invalid email string: ${email}`);
@@ -34,11 +36,13 @@ const Register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.json(tokens);
     }
     catch (err) {
+        console.log("Error occurred while trying to register");
         res.status(500).json({ message: err.message });
     }
 });
 const Login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
+    console.log(req.body);
     const emailRegex = "[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+";
     if (!email.match(emailRegex)) {
         console.error(`AuthController: Login: Invalid email string: ${email}`);

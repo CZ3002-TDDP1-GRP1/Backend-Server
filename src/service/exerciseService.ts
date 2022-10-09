@@ -37,10 +37,21 @@ const GetExerciseByName = async (exerciseName: string) => {
     }
 }
 
+const GetExerciseByID = async (exerciseId: string) => {
+    try {
+        const exercises = await ExerciseRepo.GetExerciseByID(exerciseId)
+        return exercises.name;
+    } catch (err) {
+        console.error(`ExerciseService: GetExercise: Unable to get exercise data for use ${exerciseId}`);
+        throw new Error('An error occured while trying to retrieve exercise data');
+    }
+}
+
 const ExerciseService = {
     GetAllExercises,
     GetAlternativeForExerciseID,
     GetExerciseByName,
+    GetExerciseByID,
 }
 
 export { ExerciseService as default };

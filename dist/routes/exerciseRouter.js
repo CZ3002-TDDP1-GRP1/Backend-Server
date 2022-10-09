@@ -11,4 +11,5 @@ exports.default = router;
 router.get('/', exerciseController_1.default.GetAllExercises);
 router.get('/alt/:exerciseID', exerciseController_1.default.GetAlternativeForExerciseID);
 router.get('/:exerciseName', exerciseController_1.default.GetExercise);
+router.get('/id/:exerciseID', exerciseController_1.default.GetExerciseByID);
 //# sourceMappingURL=exerciseRouter.js.map

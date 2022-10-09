@@ -33,10 +33,24 @@ const GetExercise = async (req: Request, res: Response) => {
     }
 }
 
+const GetExerciseByID = async (req: Request, res: Response) => {
+    const exerciseID = req.params.exerciseID
+    if (!exerciseID) {
+        return res.status(401).json({ message: 'Exercise not found' })
+    }
+    try {
+        const exercise = await ExerciseService.GetExerciseByID(exerciseID);
+        res.json(exercise);
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+}
+
 const ExerciseController = {
     GetAllExercises,
     GetAlternativeForExerciseID,
     GetExercise,
+    GetExerciseByID,
 }
 
 export { ExerciseController as default };

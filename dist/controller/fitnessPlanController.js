@@ -16,6 +16,7 @@ exports.default = void 0;
 const fitnessPlanService_1 = __importDefault(require("../service/fitnessPlanService"));
 const GetFitnessPlans = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userID = req.params.user;
+    console.log(userID);
     if (!userID) {
         return res.status(401).json({ message: 'User not found' });
     }

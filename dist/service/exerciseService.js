@@ -51,10 +51,21 @@ const GetExerciseByName = (exerciseName) => __awaiter(void 0, void 0, void 0, fu
         throw new Error('An error occured while trying to retrieve exercise data');
     }
 });
+const GetExerciseByID = (exerciseId) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const exercises = yield exerciseRepo_1.default.GetExerciseByID(exerciseId);
+        return exercises.name;
+    }
+    catch (err) {
+        console.error(`ExerciseService: GetExercise: Unable to get exercise data for use ${exerciseId}`);
+        throw new Error('An error occured while trying to retrieve exercise data');
+    }
+});
 const ExerciseService = {
     GetAllExercises,
     GetAlternativeForExerciseID,
     GetExerciseByName,
+    GetExerciseByID,
 };
 exports.default = ExerciseService;
 //# sourceMappingURL=exerciseService.js.map

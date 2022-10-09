@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 const GetFitnessPlans = async (req: Request, res: Response) => {
     const userID = req.params.user;
+    console.log(userID);
     if (!userID) {
         return res.status(401).json({ message: 'User not found' })
     }

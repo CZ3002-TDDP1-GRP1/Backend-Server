@@ -1,9 +1,5 @@
 # ExpressJS and TypeScript - a simple project template
 
-** Version of node and npm supported
-node 14.20.1
-npm 6.14.17 
-
 Instructions:
 
 1. Clone this repo

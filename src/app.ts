@@ -4,10 +4,8 @@ import ForecastRouter from './routes/forecastRouter';
 import FitnessPlanRouter from './routes/fitnessPlanRouter';
 import ExerciseRouter from './routes/exerciseRouter';
 import path from 'path';
-import cors from 'cors';
 
 const app = express();
-app.use(cors);
 app.use(express.json());
 
 app.set('views', path.join(__dirname, 'views'));

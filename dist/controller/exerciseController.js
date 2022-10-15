@@ -46,10 +46,24 @@ const GetExercise = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         return res.status(500).json({ message: err.message });
     }
 });
+const GetExerciseByID = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const exerciseID = req.params.exerciseID;
+    if (!exerciseID) {
+        return res.status(401).json({ message: 'Exercise not found' });
+    }
+    try {
+        const exercise = yield exerciseService_1.default.GetExerciseByID(exerciseID);
+        res.json(exercise);
+    }
+    catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+});
 const ExerciseController = {
     GetAllExercises,
     GetAlternativeForExerciseID,
     GetExercise,
+    GetExerciseByID,
 };
 exports.default = ExerciseController;
 //# sourceMappingURL=exerciseController.js.map
